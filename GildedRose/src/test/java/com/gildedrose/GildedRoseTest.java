@@ -11,8 +11,8 @@ class GildedRoseTest {
     @Test
     void testAgedBrie() {
         Item[] items = new Item[]{
-                new Item("Aged Brie", 10, 40),
-                new Item("Aged Brie", -1, 40)
+                new AgedBrie("Aged Brie", 10, 40),
+                new AgedBrie("Aged Brie", -1, 40)
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -25,7 +25,7 @@ class GildedRoseTest {
     @Test
     void testAgedBrieSup50() {
         Item[] items = new Item[]{
-                new Item("Aged Brie", 10, 50),
+                new AgedBrie("Aged Brie", 10, 50),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -35,7 +35,7 @@ class GildedRoseTest {
     @Test
     void testSulfuras() {
         Item[] items = new Item[]{
-                new Item("Sulfuras, Hand of Ragnaros", 10, 80),
+                new Sulfuras("Sulfuras, Hand of Ragnaros", 10, 80),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -46,10 +46,10 @@ class GildedRoseTest {
     @Test
     void testBackstage() {
         Item[] items = new Item[]{
-                new Item("Backstage passes to a TAFKAL80ETC concert", 11, 42),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 42),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 42),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 0, 42),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 11, 42),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 10, 42),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 5, 42),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 0, 42),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -67,9 +67,9 @@ class GildedRoseTest {
     @Test
     void testBackstageSup50() {
         Item[] items = new Item[]{
-                new Item("Backstage passes to a TAFKAL80ETC concert", 11, 50),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 50),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 11, 50),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 10, 50),
+                new Backstage("Backstage passes to a TAFKAL80ETC concert", 10, 49)
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -81,8 +81,8 @@ class GildedRoseTest {
     @Test
     void testLambda(){
         Item[] items = new Item[]{
-                new Item("Test", 10, 0),
-                new Item("Test", -1, 10),
+                new Lambda("Test", 10, 0),
+                new Lambda("Test", -1, 10),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();

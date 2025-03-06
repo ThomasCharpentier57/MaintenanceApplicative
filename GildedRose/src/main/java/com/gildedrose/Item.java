@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class Item {
+public abstract class Item {
 
     public String name;
 
@@ -19,16 +19,5 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    public void updateQuality(){
-        if (this.quality > 0) {
-            this.quality--;
-        }
-
-        if (this.sellIn < 0) {
-            if (this.quality > 0) {
-                this.quality--;
-            }
-        }
-        this.sellIn--;
-    }
+    public abstract void updateQuality();
 }
