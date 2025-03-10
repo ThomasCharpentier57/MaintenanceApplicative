@@ -17,7 +17,7 @@ public class PlayGame {
       if (playerCount < 1 || playerCount > 4) throw new IllegalArgumentException("No player 1..4");
       System.out.println("Reading names for " + playerCount + " players:");
 
-      IGame aGame = new GameOld();
+      IGame aGame = new Game();
 
       for (int i = 1; i <= playerCount; i++) {
          System.out.print("Player "+i+" name: ");
@@ -28,7 +28,7 @@ public class PlayGame {
       System.out.println("\n\n--Starting game--");
 
 
-      boolean notAWinner;
+      boolean winner = false;
       do {
          int roll = readRoll();
          aGame.roll(roll);
@@ -36,12 +36,12 @@ public class PlayGame {
          System.out.print(">> Was the answer correct? [y/n] ");
          boolean correct = readYesNo();
          if (correct) {
-            notAWinner = aGame.handleCorrectAnswer();
+            winner = aGame.handleCorrectAnswer();
          } else {
-            notAWinner = aGame.wrongAnswer();
+            aGame.handleWrongAnswer();
          }
 
-      } while (notAWinner);
+      } while (!winner);
       System.out.println(">> Game won!");
    }
 
