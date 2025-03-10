@@ -2,6 +2,7 @@ package trivia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 
 // TODO refactor me
@@ -34,6 +35,27 @@ public class GameOld implements IGame {
 
     public boolean isPlayable() {
         return (howManyPlayers() >= 2);
+    }
+
+    @Override
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("*** Welcome to Trivia Game ***\n");
+        System.out.println("Enter number of players: 2-6");
+        int playerCount = Integer.parseInt(scanner.nextLine());
+        if (playerCount < 2 || playerCount > 6) throw new IllegalArgumentException("No player 2..6");
+        System.out.println("Reading names for " + playerCount + " players:");
+
+        for (int i = 1; i <= playerCount; i++) {
+            System.out.print("Player " + i + " name: ");
+            String playerName;
+            do {
+                playerName = scanner.nextLine();
+            } while (!this.add(playerName));
+
+        }
+
+        System.out.println("\n\n--Starting game--");
     }
 
     public boolean add(String playerName) {

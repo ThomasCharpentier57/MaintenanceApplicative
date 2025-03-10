@@ -1,31 +1,64 @@
 package trivia;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game implements IGame {
+    public static final int CASES = 12;
+    public static final int MINIMUM_PLAYERS = 2;
+    public static final int MAXIMUM_PLAYERS = 6;
+
     ArrayList<Player> players = new ArrayList<>();
     QuestionManager questionManager;
     Player currentPlayer;
-    public static final int CASES = 12;
+    private boolean started = false;
+
 
     public Game() {
         questionManager = new QuestionManager();
     }
 
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("*** Welcome to Trivia Game ***\n");
+        System.out.println("Enter number of players:"+MINIMUM_PLAYERS+"-"+MAXIMUM_PLAYERS);
+        int playerCount = Integer.parseInt(scanner.nextLine());
+        if (playerCount < MINIMUM_PLAYERS || playerCount > MAXIMUM_PLAYERS) throw new IllegalArgumentException("No player "+MINIMUM_PLAYERS+".."+MAXIMUM_PLAYERS);
+        System.out.println("Reading names for " + playerCount + " players:");
+
+        for (int i = 1; i <= playerCount; i++) {
+            System.out.print("Player " + i + " name: ");
+            String playerName;
+            do {
+                playerName = scanner.nextLine();
+            } while (!this.add(playerName));
+
+        }
+
+        currentPlayer = players.get(0);
+
+        started = true;
+        System.out.println("\n\n--Starting game--");
+    }
+
     public boolean add(String playerName) {
+        if(started) {
+            System.out.println("Game already started");
+            return false;
+        }
+
         Player newPlayer = new Player(playerName);
-        if(players.contains(newPlayer)) {
+        if (players.contains(newPlayer)) {
             System.out.println(playerName + " already exists");
             return false;
         }
 
         players.add(newPlayer);
-        if (currentPlayer == null) {
-            currentPlayer = players.get(0);
-        }
         System.out.println(playerName + " was added");
         System.out.println("They are player number " + players.size());
         return true;
+
     }
 
     public void roll(int roll) {
