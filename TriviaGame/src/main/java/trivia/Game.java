@@ -13,7 +13,13 @@ public class Game implements IGame {
     }
 
     public boolean add(String playerName) {
-        players.add(new Player(playerName));
+        Player newPlayer = new Player(playerName);
+        if(players.contains(newPlayer)) {
+            System.out.println(playerName + " already exists");
+            return false;
+        }
+
+        players.add(newPlayer);
         if (currentPlayer == null) {
             currentPlayer = players.get(0);
         }

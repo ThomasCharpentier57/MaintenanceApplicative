@@ -56,4 +56,12 @@ public class Player {
     public boolean didPlayerWin() {
         return getPurse() == 6;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(name, player.name);
+    }
+
 }
