@@ -8,11 +8,7 @@ public class QuestionManager {
 
     public QuestionManager() {
         for (Category category : Category.values()) {
-            LinkedList<String> questionList = new LinkedList<>();
-            for (int i = 0; i < 50; i++) {
-                questionList.addLast(category + " Question " + i);
-            }
-            questions.put(category, questionList);
+            questions.put(category, category.getQuestions());
         }
     }
 
