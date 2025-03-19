@@ -16,6 +16,7 @@ public class PlayGame {
 
 
         boolean winner = false;
+        boolean secondChance = false;
         do {
             int roll = readRoll();
             aGame.roll(roll);
