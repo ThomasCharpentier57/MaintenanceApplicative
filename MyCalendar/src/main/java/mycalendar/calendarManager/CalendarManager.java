@@ -53,7 +53,7 @@ public class CalendarManager {
                 ajouterEventReunion();
                 break;
             case "4":
-                ajouterEventReunion();
+                ajouterEventPeriodique();
                 break;
             case "5":
                 return deconnexion();
