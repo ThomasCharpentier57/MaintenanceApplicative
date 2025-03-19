@@ -1,4 +1,4 @@
-package mycalendar;
+package mycalendar.event;
 
 public class Titre {
     String title;
