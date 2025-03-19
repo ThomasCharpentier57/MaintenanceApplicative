@@ -22,6 +22,10 @@ public class Reunion extends Event {
         participants.add(p);
     }
 
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
     @Override
     public String toString() {
         return "Réunion : " + this.titre + " à " + this.lieu + " avec " + participants;
