@@ -1,5 +1,6 @@
 package mycalendar.event.reunion;
 
+import mycalendar.event.DureeMinutes;
 import mycalendar.event.Titre;
 import mycalendar.event.Event;
 import mycalendar.utilisateur.Utilisateur;
@@ -13,8 +14,8 @@ public class Reunion extends Event {
     private Lieu lieu;
 
 
-    public Reunion(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut) {
-        super(titre, proprietaire, dateDebut);
+    public Reunion(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, DureeMinutes dureeMinutes) {
+        super(titre, proprietaire, dateDebut, dureeMinutes);
         participants = new ArrayList<Participant>();
     }
 

@@ -1,5 +1,6 @@
 package mycalendar.event.periodique;
 
+import mycalendar.event.DureeMinutes;
 import mycalendar.event.Titre;
 import mycalendar.event.Event;
 import mycalendar.utilisateur.Utilisateur;
@@ -9,8 +10,8 @@ import java.time.LocalDateTime;
 public class Periodique extends Event {
     private FrequenceJour frequenceJour;
 
-    public Periodique(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, FrequenceJour frequenceJour) {
-        super(titre, proprietaire, dateDebut);
+    public Periodique(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, FrequenceJour frequenceJour, DureeMinutes dureeMinutes) {
+        super(titre, proprietaire, dateDebut, dureeMinutes);
         this.frequenceJour = frequenceJour;
     }
 
