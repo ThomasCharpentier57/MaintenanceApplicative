@@ -14,8 +14,9 @@ public class Reunion extends Event {
     private Lieu lieu;
 
 
-    public Reunion(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, DureeMinutes dureeMinutes) {
+    public Reunion(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, DureeMinutes dureeMinutes, Lieu lieu) {
         super(titre, proprietaire, dateDebut, dureeMinutes);
+        this.lieu = lieu;
         participants = new ArrayList<Participant>();
     }
 

@@ -1,5 +1,6 @@
 package mycalendar.calendarManager;
 
+import mycalendar.event.DureeMinutes;
 import mycalendar.event.Event;
 import mycalendar.event.Titre;
 import mycalendar.event.periodique.FrequenceJour;
@@ -75,12 +76,14 @@ public class CalendarManager {
         int heure = scanner.nextInt();
         System.out.print("Minute début (0-59) : ");
         int minute = scanner.nextInt();
+        System.out.print("Durée en minutes : ");
+        int duree = scanner.nextInt();
 
         LocalDateTime date = LocalDateTime.of(annee, mois, jour, heure, minute);
 
         System.out.print("Frequence (en jours) : ");
         FrequenceJour frequence = new FrequenceJour(scanner.nextInt());
-        listEvenement.add(new Periodique(titre, this.utilisateur, date, frequence));
+        listEvenement.add(new Periodique(titre, this.utilisateur, date, new DureeMinutes(duree), frequence));
 
         System.out.println("Événement ajouté.");
     }
@@ -98,10 +101,12 @@ public class CalendarManager {
         int heure = scanner.nextInt();
         System.out.print("Minute début (0-59) : ");
         int minute = scanner.nextInt();
+        System.out.print("Durée en minutes : ");
+        int duree = scanner.nextInt();
 
         LocalDateTime date = LocalDateTime.of(annee, mois, jour, heure, minute);
 
-        listEvenement.add(new RdvPersonnel(titre, this.utilisateur, date));
+        listEvenement.add(new RdvPersonnel(titre, this.utilisateur, date, new DureeMinutes(duree)));
         System.out.println("Événement ajouté.");
     }
 
@@ -118,22 +123,24 @@ public class CalendarManager {
         int heure = scanner.nextInt();
         System.out.print("Minute début (0-59) : ");
         int minute = scanner.nextInt();
+        System.out.print("Durée en minutes : ");
+        int duree = scanner.nextInt();
 
         LocalDateTime date = LocalDateTime.of(annee, mois, jour, heure, minute);
 
         System.out.println("Lieu :");
         Lieu lieu = new Lieu(scanner.nextLine());
 
-        Reunion reunion = new Reunion(titre, this.utilisateur, date);
+        Reunion reunion = new Reunion(titre, this.utilisateur, date, new DureeMinutes(duree), lieu);
         reunion.ajouterParicipant(new Participant(this.utilisateur));
 
-        boolean encore = true;
         System.out.println("Ajouter un participant ? (oui / non)");
         while (scanner.nextLine().equals("oui"))
         {
             System.out.print("Participants : " + reunion.getParticipants());
             System.out.println("Nom du participant :");
             reunion.ajouterParicipant(new Participant(new Nom(scanner.nextLine())));
+            System.out.println("Ajouter un participant ? (oui / non)");
         }
 
         listEvenement.add(reunion);

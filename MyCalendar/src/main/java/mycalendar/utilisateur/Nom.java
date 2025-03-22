@@ -1,18 +1,18 @@
 package mycalendar.utilisateur;
 
 public class Nom {
-    private String name;
+    private String nom;
 
     public Nom(String name) {
-        this.name = name;
+        this.nom = name;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
     @Override
     public String toString() {
-        return this.name;
+        return this.nom;
     }
 }
