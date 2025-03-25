@@ -34,7 +34,8 @@ public class Main {
             }
 
             while (statusConnexion == StatusConnexion.CONNECTER) {
-                statusConnexion = calendarManager.start(connexionManager.getUtilisateurCourant());
+                calendarManager.start(connexionManager.getUtilisateurCourant());
+                statusConnexion = calendarManager.getStatusConnexion();
             }
         }
     }

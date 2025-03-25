@@ -10,7 +10,7 @@ public abstract class Event {
     protected LocalDateTime dateDebut;
     protected DureeMinutes dureeMinutes;
 
-    public Event(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, DureeMinutes dureeMinutes) {
+    protected Event(Titre titre, Utilisateur proprietaire, LocalDateTime dateDebut, DureeMinutes dureeMinutes) {
         this.titre = titre;
         this.proprietaire = proprietaire;
         this.dateDebut = dateDebut;
@@ -18,6 +18,6 @@ public abstract class Event {
     }
 
     public LocalDateTime getDateDebut() {
-        return dateDebut;
+        return this.dateDebut;
     }
 }
