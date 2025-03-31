@@ -4,6 +4,7 @@ import mycalendar.calendarManager.actions.main.ActionPrincipale;
 import mycalendar.calendarManager.actions.main.*;
 import mycalendar.event.DureeMinutes;
 import mycalendar.event.Event;
+import mycalendar.event.EventId;
 import mycalendar.event.Titre;
 import mycalendar.event.periodique.FrequenceJour;
 import mycalendar.event.periodique.Periodique;
@@ -26,6 +27,7 @@ public class CalendarManager {
     private final Scanner scanner;
     private Utilisateur utilisateur;
     private StatusConnexion statusConnexion;
+    private int currentEventId;
 
     public CalendarManager() {
         listActions = List.of(
@@ -33,10 +35,12 @@ public class CalendarManager {
                 new AjouterRDVPersonnel(this),
                 new AjouterReunion(this),
                 new AjouterPeriodique(this),
+                new AjouterAutre(this),
                 new Deconnexion(this)
         );
         listEvenement = new ArrayList<Event>();
         scanner = new Scanner(System.in);
+        this.currentEventId = 1;
     }
 
     public void start(Utilisateur utilisateur) {
@@ -63,7 +67,19 @@ public class CalendarManager {
     }
 
     public void ajouterEvenement(Event event) {
+        event.setId(new EventId(this.currentEventId));
         listEvenement.add(event);
+        this.currentEventId++;
+    }
+
+    public void supprimerEvenement(EventId idEvenement) {
+        for(Event e : listEvenement) {
+            if(e.getId().equals(idEvenement)) {
+                listEvenement.remove(e);
+                return;
+            }
+        }
+        System.out.println("Cette evenement n'existe pas");
     }
 
     public StatusConnexion getStatusConnexion() {
@@ -77,4 +93,5 @@ public class CalendarManager {
     public Utilisateur getUtilisateur() {
         return utilisateur;
     }
+
 }

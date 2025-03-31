@@ -17,7 +17,7 @@ public class Periodique extends Event {
 
     @Override
     public String toString() {
-        return "Événement périodique : " + this.titre + " tous les " + this.frequenceJour;
+        return super.toString()+" Événement périodique : " + this.titre + " tous les " + this.frequenceJour;
     }
 
     public FrequenceJour getFrequenceJour() {

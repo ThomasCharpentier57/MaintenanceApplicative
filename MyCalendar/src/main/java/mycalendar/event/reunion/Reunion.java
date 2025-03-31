@@ -30,6 +30,6 @@ public class Reunion extends Event {
 
     @Override
     public String toString() {
-        return "Réunion : " + this.titre + " à " + this.lieu + " avec " + participants;
+        return super.toString()+" Réunion : " + this.titre + " à " + this.lieu + " avec " + participants;
     }
 }
