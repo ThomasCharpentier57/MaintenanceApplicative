@@ -41,6 +41,5 @@ public class AjouterAutre extends ActionPrincipale{
 
         Autre autreEvenement = new Autre(titre, this.utilisateur, date, new DureeMinutes(duree));
         calendarManager.ajouterEvenement(autreEvenement);
-        System.out.println("Événement ajouté.");
     }
 }

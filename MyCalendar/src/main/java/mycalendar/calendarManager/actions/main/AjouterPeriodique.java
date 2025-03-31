@@ -44,7 +44,6 @@ public class AjouterPeriodique extends ActionPrincipale {
         Periodique periodique = new Periodique(titre, this.utilisateur, date, new DureeMinutes(duree), frequence);
 
         calendarManager.ajouterEvenement(periodique);
-        System.out.println("Événement ajouté.");
     }
 
     @Override

@@ -67,9 +67,20 @@ public class CalendarManager {
     }
 
     public void ajouterEvenement(Event event) {
+        boolean ok = false;
+        for(Event e : listEvenement) {
+            if(!Event.conflit(e, event)) {
+                ok = true;
+                break;
+            }
+        }
+        if(!ok) {
+            System.out.println("Un evenement est déjà présent à ce moment là");
+        }
         event.setId(new EventId(this.currentEventId));
         listEvenement.add(event);
         this.currentEventId++;
+        System.out.println("Événement ajouté.");
     }
 
     public void supprimerEvenement(EventId idEvenement) {

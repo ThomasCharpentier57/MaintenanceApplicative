@@ -56,7 +56,6 @@ public class AjouterReunion extends ActionPrincipale {
             System.out.println("Ajouter un participant ? (oui / non)");
         }
 
-        calendarManager.ajouterEvenement(reunion);
         System.out.println("Événement ajouté.");
     }
 

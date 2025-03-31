@@ -40,7 +40,6 @@ public class AjouterRDVPersonnel extends ActionPrincipale {
 
         RdvPersonnel rdvPersonnel = new RdvPersonnel(titre, this.utilisateur, date, new DureeMinutes(duree));
         calendarManager.ajouterEvenement(rdvPersonnel);
-        System.out.println("Événement ajouté.");
     }
 
     @Override

@@ -1,5 +1,6 @@
 package mycalendar.event;
 
+import mycalendar.event.periodique.Periodique;
 import mycalendar.utilisateur.Utilisateur;
 
 import java.time.LocalDateTime;
@@ -23,7 +24,7 @@ public abstract class Event {
     }
 
     public void setId(EventId eventId) {
-        if(this.id != null){
+        if (this.id != null) {
             this.id = eventId;
         } else {
             System.out.println("Cette évènement possède déjà un ID");
@@ -34,8 +35,27 @@ public abstract class Event {
         return this.dateDebut;
     }
 
+    public DureeMinutes getDureeMinutes() {
+        return dureeMinutes;
+    }
+
     @Override
     public String toString() {
-        return "ID : "+this.getId().getId();
+        return "ID : " + this.getId().getId();
+    }
+
+    public static boolean conflit(Event event1, Event event2) {
+        LocalDateTime fin1 = event1.dateDebut.plusMinutes(event1.dureeMinutes.getMinutes());
+        LocalDateTime fin2 = event2.dateDebut.plusMinutes(event2.dureeMinutes.getMinutes());
+
+        if (event1 instanceof Periodique || event2 instanceof Periodique) {
+            return false;
+        }
+
+        if (event1.dateDebut.isBefore(fin2) && fin1.isAfter(event2.dateDebut)) {
+            return true;
+        }
+        return false;
+
     }
 }
