@@ -5,7 +5,7 @@ import mycalendar.utilisateur.ConnexionManager;
 import mycalendar.utilisateur.StatusConnexion;
 
 
-public class Main {
+public class    Main {
     public static void main(String[] args) {
         ConnexionManager connexionManager = new ConnexionManager();
         StatusConnexion statusConnexion = StatusConnexion.DECONNECTER;

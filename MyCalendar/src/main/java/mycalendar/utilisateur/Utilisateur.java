@@ -20,6 +20,6 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return this.nom;
+        return this.nom.toString();
     }
 }

@@ -19,9 +19,10 @@ public class ConnexionManager {
     public StatusConnexion start(){
         System.out.println("1 - Se connecter");
         System.out.println("2 - Créer un compte");
-        System.out.println("Choix : ");
+        System.out.print("Choix : ");
 
         int choix = scanner.nextInt();
+        scanner.nextLine();
         Utilisateur utilisateur = null;
         switch (choix) {
             case 1:
@@ -41,10 +42,9 @@ public class ConnexionManager {
     }
 
     private Utilisateur connexion(){
-        System.out.println("Nom d'utilisateur: ");
+        System.out.print("Nom d'utilisateur: ");
         Nom nom = new Nom(scanner.nextLine());
-
-        System.out.println("Mot de passe: ");
+        System.out.print("Mot de passe: ");
         MotDePasse motDePasse = new MotDePasse(scanner.nextLine());
 
         Utilisateur utilisateur = new Utilisateur(nom, motDePasse);
@@ -55,11 +55,12 @@ public class ConnexionManager {
     }
 
     private Utilisateur inscription(){
-        System.out.println("Nom d'utilisateur: ");
+        System.out.print("Nom d'utilisateur: ");
         Nom nom = new Nom(scanner.nextLine());
-
-        System.out.println("Mot de passe: ");
+        System.out.print("Mot de passe: ");
         MotDePasse motDePasse = new MotDePasse(scanner.nextLine());
+        scanner.nextLine();
+
 
         System.out.println("Répéter mot de passe: ");
         MotDePasse motDePasseConfirmer = new MotDePasse(scanner.nextLine());
